@@ -9,6 +9,8 @@ router.get('/form', function(req, res, next) {
     res.sendFile(path.join(__dirname+'/form.html'));
   });
 router.post('/register', userController.register);
+router.get('/list', userController.list);
+
 router.get('/', myController.myMethod);
 router.get('/about', myController.aboutMe);
 

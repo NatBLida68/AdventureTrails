@@ -7,4 +7,4 @@ const aboutMe = (req, res, next) => {
 };
 
 
-module.exports = {myMethod,aboutMe,register};
+module.exports = {myMethod,aboutMe};

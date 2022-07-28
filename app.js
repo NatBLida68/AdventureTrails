@@ -20,7 +20,7 @@ app.set('view engine', 'jade');
 
 app.use(logger('dev'));
 const testlogger = require('./middlewares/logger');  //file adding 
-app.use('/me',testlogger.mylogger); //enforcing middleware
+//app.use('/me',testlogger.mylogger); //enforcing middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
