@@ -46,7 +46,7 @@ const register = async (req, res, next) => {  //asyc because we using await for 
     res.json({message: "successfully inserted"}); // response
 };
 
-const update = async (req, res, next) => {  
+const update = async (req, res, next) => {    //update email by username and password match
   let responseMessage ="";
   try {
       let userName =req.body.username,
@@ -90,4 +90,18 @@ const listUsers =async (req, res, next)=>{
   }
 }
 
-module.exports = {register,list,update};
+const deleteUser = async (req, res, err) => {  //delete by user name
+  let userName =req.params.userName;
+
+  const delDet = await UserModel.deleteOne({ userName: userName });
+  console.log(delDet.deletedCount);
+  if(delDet.deletedCount > 0){
+  res.json({message: "Deleted successfully"}); // response
+  }
+  else{
+    res.json({message: "record not found"}); // response
+  }
+
+};
+
+module.exports = {register,list,update,deleteUser};  //use this or exports.function name  , exports. looks better so now onwards use that

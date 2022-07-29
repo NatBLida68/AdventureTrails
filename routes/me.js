@@ -13,6 +13,8 @@ router.get('/form', function(req, res, next) {
   });
 router.post('/register', userController.register);
 router.post('/update', userController.update);
+router.get('/delete/:userName', userController.deleteUser);
+
 
 router.get('/list', userController.list);
 
