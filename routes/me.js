@@ -8,7 +8,12 @@ const userController = require('../controllers/userController');
 router.get('/form', function(req, res, next) {
     res.sendFile(path.join(__dirname+'/form.html'));
   });
+  router.get('/update/email', function(req, res, next) {
+    res.sendFile(path.join(__dirname+'/updateForm.html'));
+  });
 router.post('/register', userController.register);
+router.post('/update', userController.update);
+
 router.get('/list', userController.list);
 
 router.get('/', myController.myMethod);

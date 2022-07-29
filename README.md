@@ -5,3 +5,4 @@ testing my node.js  hello world
 # mongodb 
 mongoose extention
 >basic insert / list operations
+>update record
