@@ -85,6 +85,14 @@ const listUsers =async (req, res, next)=>{
     if (users.length > 0) {
       res.json({data: users});
     }
+    else {
+      res.status(400).json({
+        status: 'success',
+        data: {
+          message: 'No notes available in the repo',
+        },
+      });
+    }
   } catch (err) {
     console.log(err.errmsg);
   }
