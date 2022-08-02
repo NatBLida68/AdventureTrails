@@ -112,4 +112,12 @@ const deleteUser = async (req, res, err) => {  //delete by user name
 
 };
 
-module.exports = {register,list,update,deleteUser};  //use this or exports.function name  , exports. looks better so now onwards use that
+const user1 = async (req, res, err) => {  //cookie tests
+  res.cookie('name', req.params.name);
+  res.send('<p>Cookie set:<a href="/me/who"> View here </a>');
+};
+
+const user2 = async (req, res) => {
+  res.send(req.cookies.name);
+  };
+module.exports = {register,list,update,deleteUser,user1,user2};  //use this or exports.function name  , exports. looks better so now onwards use that

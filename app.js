@@ -1,8 +1,9 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
-var cookieParser = require('cookie-parser');
+var cookieParser = require('cookie-parser');  // cookie parser middleware 
 var logger = require('morgan');
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -23,7 +24,7 @@ const testlogger = require('./middlewares/logger');  //file adding
 //app.use('/me',testlogger.mylogger); //enforcing middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(cookieParser());  ///cookie parser use defined here
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
