@@ -120,4 +120,15 @@ const user1 = async (req, res, err) => {  //cookie tests
 const user2 = async (req, res) => {
   res.send(req.cookies.name);
   };
-module.exports = {register,list,update,deleteUser,user1,user2};  //use this or exports.function name  , exports. looks better so now onwards use that
+
+  const sessionCount = async (req, res, next)=>{
+    console.log(req.session);
+      if (req.session.views) {
+        req.session.views++;
+        res.send(`You visited this page ${req.session.views} times`);
+      } else {
+        req.session.views = 1;
+        res.send('Welcome to this page for the first time!');
+      }
+  };
+module.exports = {register,list,update,deleteUser,user1,user2,sessionCount};  //use this or exports.function name  , exports. looks better so now onwards use that

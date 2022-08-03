@@ -2,6 +2,7 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');  // cookie parser middleware 
+const session = require('express-session'); //session middleware
 var logger = require('morgan');
 
 
@@ -25,6 +26,11 @@ const testlogger = require('./middlewares/logger');  //file adding
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());  ///cookie parser use defined here
+app.use(session({
+  secret: 'key-18734673675457', 
+  resave: true,
+  saveUninitialized: true
+}));  //using sesssion in app
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);

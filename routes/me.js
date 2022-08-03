@@ -24,5 +24,6 @@ router.get('/about', myController.aboutMe);
 //cookie test
 router.get('/user/:name', userController.user1); //set
 router.get('/who', userController.user2); // view
+router.get('/session',userController.sessionCount) //session test
 
 module.exports = router;
