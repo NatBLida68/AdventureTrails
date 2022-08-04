@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');  // cookie parser middleware 
 const session = require('express-session'); //session middleware
 var logger = require('morgan');
+const winston = require("winston"); //logger 
 
 
 var indexRouter = require('./routes/index');
@@ -27,7 +28,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());  ///cookie parser use defined here
 app.use(session({
-  secret: 'key-18734673675457', 
+  secret: 'key-18734673675457-dummy', 
   resave: true,
   saveUninitialized: true
 }));  //using sesssion in app
@@ -52,5 +53,15 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+const loginfo = {
+  transports: [
+    new winston.transports.File({
+      filename: "test.log"
+    })
+  ]
+};
+const logger2 = winston.createLogger(loginfo);
+logger2.info("Server started");  // 
 
 module.exports = app;

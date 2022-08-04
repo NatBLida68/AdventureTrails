@@ -30,6 +30,15 @@ const userSchema = new mongoose.Schema(
   
   const UserModel = mongoose.model("user", userSchema);  //create model with defined schema def
 
+  const winston = require("winston"); //logger 
+  const loginfo = {
+    transports: [
+      new winston.transports.File({
+        filename: "test.log"
+      })
+    ]
+  };
+  const logger2 = winston.createLogger(loginfo);
 
 
 const register = async (req, res, next) => {  //asyc because we using await for user model 
@@ -122,9 +131,10 @@ const user2 = async (req, res) => {
   };
 
   const sessionCount = async (req, res, next)=>{
-    console.log(req.session);
+    console.log(req.session); 
       if (req.session.views) {
         req.session.views++;
+        logger2.info(`visit sessions recorded ${req.session.views} times`);  // logging sessions counts (testing logger)
         res.send(`You visited this page ${req.session.views} times`);
       } else {
         req.session.views = 1;
