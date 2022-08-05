@@ -5,6 +5,8 @@ var cookieParser = require('cookie-parser');  // cookie parser middleware
 const session = require('express-session'); //session middleware
 var logger = require('morgan');
 const winston = require("winston"); //logger 
+var helmet = require('helmet'); //various security options providing middleware
+app.use(helmet());
 
 
 var indexRouter = require('./routes/index');
