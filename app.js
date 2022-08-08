@@ -6,7 +6,8 @@ const session = require('express-session'); //session middleware
 var logger = require('morgan');
 const winston = require("winston"); //logger 
 var helmet = require('helmet'); //various security options providing middleware
-app.use(helmet());
+var jQuery = require('jquery');
+var bootstrap = require('bootstrap');
 
 
 var indexRouter = require('./routes/index');
@@ -18,8 +19,11 @@ var app = express();
 app.listen(1234);
 console.log('Adventure Trails welcomes you!');
 // view engine setup
+
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+app.use(helmet());//make sure its before routes
 
 
 

@@ -15,6 +15,11 @@
     "jade": "~1.11.0",
     "mongoose": "^6.4.6",
     "morgan": "~1.9.1",
+    "popper.js": "^1.16.1",
     "winston": "^3.8.1"
+  },
+  "devDependencies": {
+    "bootstrap": "^5.2.0",
+    "jquery": "^3.6.0"
   }
 }
