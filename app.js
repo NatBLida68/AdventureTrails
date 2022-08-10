@@ -25,7 +25,8 @@ app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 
 //view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'ejs');  //npm i ejs
+
 app.use(helmet());//make sure its before routes
 
 

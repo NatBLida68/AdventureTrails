@@ -6,7 +6,7 @@ const myController = require('../controllers/myController');
 const userController = require('../controllers/userController');
 
 router.get('/form', function(req, res, next) {
-    res.sendFile(path.join(__dirname+'/../views/user/form.html'));
+  res.sendFile(path.join(__dirname+'/../views/user/form.html'));
   });
   router.get('/update/email', function(req, res, next) {
     res.sendFile(path.join(__dirname+'/../views/user/updateForm.html'));

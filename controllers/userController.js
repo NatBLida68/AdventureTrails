@@ -92,14 +92,15 @@ const listUsers =async (req, res, next)=>{
     const users = await UserModel.find({}, { _id: 0, __v: 0 }); //retun all data
     //if need specific .find({name:"name"}, { _id: 0, __v: 0 })
     if (users.length > 0) {
-      res.json({data: users});
+        res.render("list", {
+          messages:{"status":200,success:'successfully fetched',error:false},
+            data: users
+        });
     }
     else {
-      res.status(400).json({
-        status: 'success',
-        data: {
-          message: 'No notes available in the repo',
-        },
+      res.render("list", {
+        messages:{"status":200,success:'No Data available in Database',error:true},
+          data: {}
       });
     }
   } catch (err) {
