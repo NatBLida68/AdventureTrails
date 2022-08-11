@@ -89,8 +89,9 @@ const list = (req,res,next)=>{  //list fuction not using async since calls anoth
 
 const listUsers =async (req, res, next)=>{
   try {
-    const users = await UserModel.find({}, { _id: 0, __v: 0 }); //retun all data
+    const users = await UserModel.find({}); //retun all data
     //if need specific .find({name:"name"}, { _id: 0, __v: 0 })
+    console.log(users);
     if (users.length > 0) {
         res.render("list", {
           messages:{"status":200,success:'successfully fetched',error:false},
@@ -108,11 +109,9 @@ const listUsers =async (req, res, next)=>{
   }
 }
 
-const deleteUser = async (req, res, err) => {  //delete by user name
-  let userName =req.params.userName;
-
-  const delDet = await UserModel.deleteOne({ userName: userName });
-  console.log(delDet.deletedCount);
+const deleteUser = async (req, res, err) => {  //delete by object id sent by ajax post
+  let id =req.body.id;
+  const delDet = await UserModel.deleteOne({ _id: id });
   if(delDet.deletedCount > 0){
   res.json({message: "Deleted successfully"}); // response
   }
