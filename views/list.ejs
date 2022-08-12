@@ -39,7 +39,8 @@
         <th scope="row"><%= (i+1) %></th>
         <td><%= data[i].userName%></td>
         <td><%= data[i].email%></td>
-        <td class="user"><button id=<%= data[i]._id %> class="btn btn-danger btn-del">Delete</button></td>
+        <td class="user"><button oid=<%= data[i]._id %> class="btn btn-danger btn-del">Delete</button>
+          <button oid=<%= data[i]._id %> class="btn btn-primary btn-update">Update</button></td>
       </tr>
       <% }
                
@@ -51,6 +52,30 @@
       
     </tbody>
     </table>
+
+    <div class="container">
+      <h2>Small Modal</h2>
+      <!-- Trigger the modal with a button -->
+      <button id="modelTrigger" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Small Modal</button>
+    
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+              <p>This is a small modal.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- scripts from node redirected in app.js with express.static -->
       <script src="/js/jquery.min.js"></script>

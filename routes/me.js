@@ -14,6 +14,7 @@ router.get('/form', function(req, res, next) {
 router.post('/register', userController.register);
 router.post('/update', userController.update);
 router.post('/delete/user', userController.deleteUser);
+//router.get('/update/user', userController.userModel);
 
 
 router.get('/list', userController.list);
