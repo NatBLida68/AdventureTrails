@@ -4,12 +4,20 @@ $(function(){
 
     $("td.user").find(".btn-del").on("click",function(){
      let id=$(this).attr('oid');
-     sendData("/me/delete/user",{id:id})
+     sendData("/me/delete/user",{id:id}); //delete
     });
 
-    $("td.user").find(".btn-update").on("click",function(){
-        let id=$(this).attr('oid');
-        sendData("/me/update/user",{id:id})
+    $("td.user").find(".btn-update").on("click",function(){    
+        let id=$(this).attr('oid'),
+        tr =$(this).closest('tr');
+        userName=tr.find("td.name").text(),
+        email=tr.find("td.email").text();
+        let myModel = $('#myModal');
+       myModel.modal('show');
+       myModel.find("input#id").val(id);
+       myModel.find("input#username").val(userName);
+       myModel.find("input#email").val(email);
+       //show model with data in input
        });
 
        $('#modelTrigger').on('click',function(){

@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node app.js",
+    "dev": "nodemon --watch app.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -21,6 +22,7 @@
   },
   "devDependencies": {
     "bootstrap": "^5.2.0",
-    "jquery": "^3.6.0"
+    "jquery": "^3.6.0",
+    "nodemon": "^2.0.19"
   }
 }

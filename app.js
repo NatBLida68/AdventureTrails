@@ -15,7 +15,9 @@ var myRouter = require('./routes/me');
 
 //app 
 var app = express();
+
 app.listen(1234);
+app.listen(3000);
 
 
 // node_modules file redirect setup
