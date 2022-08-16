@@ -27,13 +27,15 @@
           <label for="passwd">Password</label>
           <input type="password" class="form-control" name="passwd" id="passwd" placeholder="Password">
         </div>
-        <button type="submit" class="btn btn-primary mt-1">Submit</button>
+        <button type="button" id="registerForm" class="btn btn-primary mt-1">Submit</button>
       </form>
     </div>
+
+    <%- include('../model.ejs') %>
     <!-- scripts from node redirected in app.js with express.static -->
-      <script src="/js/jquery.min.js"></script>
-      <script src="/js/bootstrap.min.js"></script>
-      <!-- scripts from public-->
-      <script src="/javascripts/main.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <!-- scripts from public-->
+    <script src="/javascripts/main.js"></script>
 </body>
 </html>

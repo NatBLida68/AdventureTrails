@@ -18,11 +18,16 @@ $(function(){
        myModel.find("input#username").val(userName);
        myModel.find("input#email").val(email);
        //show model with data in input
+       bindEvents();
        });
 
-       $('#modelTrigger').on('click',function(){
-        alert("btn click")
-        $('#myModal').modal('show')
+       $('#registerForm').on('click',function(){
+        
+        passwd = $("input#passws").val(),
+        userName = $("input#username").val(),
+        email = $("input#email").val();
+        let data = {passwd:passwd,userName:userName,email:email};
+            sendData("/me/register",data); //update
         });
 
     function sendData(url,data)
@@ -33,13 +38,38 @@ $(function(){
             data:data,
             dataType: 'json',
             success: function(){
-                console.log('success');
-                window.location.reload();
+                modelSuccess();
             },
             error: function(){
                alert('something went wrong');
             }
             });
     }
+
+    function bindEvents() //model related functions
+    {
+        $("#close").on('click',function(){
+            $('#myModal').modal('hide');
+        });
+        $("#save").on('click',function(){
+            let myModel = $('#myModal'),
+       id = myModel.find("input#id").val(),
+       userName = myModel.find("input#username").val(),
+       email = myModel.find("input#email").val();
+       let data = {id:id,userName:userName,email:email};
+           sendData("/me/update/user",data); //update
+        })
+
+    }
    
+    function modelSuccess()
+    {
+        let myModel = $('#myModal');
+                myModel.modal("show");
+                myModel.find(".modal-body").html("success");
+                myModel.find("button#save").addClass("d-none");
+                myModel.find("button#close").on('click',function(){
+                    window.location.reload();
+                });
+    }
    });

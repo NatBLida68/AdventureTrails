@@ -6,15 +6,18 @@ const myController = require('../controllers/myController');
 const userController = require('../controllers/userController');
 
 router.get('/form', function(req, res, next) {
+  res.render("user/form", {
+    messages:{"status":200,success:'success',error:false},
+  });
   res.sendFile(path.join(__dirname+'/../views/user/form.html'));
   });
   router.get('/update/email', function(req, res, next) {
     res.sendFile(path.join(__dirname+'/../views/user/updateForm.html'));
   });
 router.post('/register', userController.register);
-router.post('/update', userController.update);
+//router.post('/update', userController.update);
 router.post('/delete/user', userController.deleteUser);
-//router.get('/update/user', userController.userModel);
+router.post('/update/user', userController.update);
 
 
 router.get('/list', userController.list);

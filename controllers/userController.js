@@ -58,19 +58,19 @@ const register = async (req, res, next) => {  //asyc because we using await for 
 const update = async (req, res, next) => {    //update email by username and password match
   let responseMessage ="";
   try {
-      let userName =req.body.username,
+      let userName =req.body.userName,
       email= req.body.email,
-      passwd= req.body.passwd;
-      console.log(userName,email,passwd);
+      id= req.body.id;
+      console.log(userName,email,id);
       const user = await UserModel.findOneAndUpdate(
-        { userName:userName,passwd:passwd},
-        {email:email},
+        {  _id:id},
+        {email:email,userName:userName},
         {
           new: true, //to return new doc back
         //  runValidators: true, //to run the validators if specified in the model
         }
       );
-      
+
       if (user != null) {
         responseMessage = "successfully Updated";
       }
@@ -91,7 +91,6 @@ const listUsers =async (req, res, next)=>{
   try {
     const users = await UserModel.find({}); //retun all data
     //if need specific .find({name:"name"}, { _id: 0, __v: 0 })
-    console.log(users);
     if (users.length > 0) {
         res.render("list", {
           messages:{"status":200,success:'successfully fetched',error:false},
