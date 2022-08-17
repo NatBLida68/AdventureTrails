@@ -23,7 +23,7 @@ $(function(){
 
        $('#registerForm').on('click',function(){
         
-        passwd = $("input#passws").val(),
+        passwd = $("input#passwd").val(),
         userName = $("input#username").val(),
         email = $("input#email").val();
         let data = {passwd:passwd,userName:userName,email:email};
@@ -69,7 +69,7 @@ $(function(){
                 myModel.find(".modal-body").html("success");
                 myModel.find("button#save").addClass("d-none");
                 myModel.find("button#close").on('click',function(){
-                    window.location.reload();
+                  //  window.location.reload();
                 });
     }
    });

@@ -4,19 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-     <!-- css node - express.static -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">  
-     <!-- css custom -->
-     <link rel="stylesheet" href="/stylesheets/main.css">  
+
+     <%- include('../components/css.ejs') %>  <!-- include css -->
 </head>
 <body>
     <div>
-        <a href="/list" class="btn btn-info ml-3">Fetch  data from mongodb using node js and display in html</a>
+        <a href="/me/list" class="btn btn-info ml-3">Refresh</a>
     </div>    
     <!--   <% if (messages.error) { %>
       <p style="color:red"><%- messages.error %></p>
     <% } %> -->
-      
     <% if (messages.success) { %>
         <p class="alert alert-success mt-4"><%- messages.success %></p>
     <% } %>  
@@ -27,6 +24,8 @@
         <th scope="col">#</th>
         <th scope="col">Name</th>
         <th scope="col">Email</th>
+        <th scope="col">Action </th>
+
      
       </tr>
     </thead>
@@ -36,8 +35,10 @@
       for(var i = 0; i< data.length; i++) {%>  
       <tr>
         <th scope="row"><%= (i+1) %></th>
-        <td><%= data[i].userName%></td>
-        <td><%= data[i].email%></td>
+        <td class="name"><%= data[i].userName%></td>
+        <td class="email"><%= data[i].email%></td>
+        <td class="user"><button oid=<%= data[i]._id %> class="btn btn-danger btn-del">Delete</button>
+          <button oid=<%= data[i]._id %> class="btn btn-primary btn-update">Update</button></td>
       </tr>
       <% }
                
@@ -49,11 +50,8 @@
       
     </tbody>
     </table>
+    <%- include('./modal.ejs') %>  <!-- include model html code -->
 
-    <!-- scripts from node redirected in app.js with express.static -->
-      <script src="/js/jquery.min.js"></script>
-      <script src="/js/bootstrap.min.js"></script>
-      <!-- scripts from public-->
-      <script src="/javascripts/main.js"></script>
+    <%- include('../components/js.ejs') %>  <!-- include js -->
 </body>
 </html>

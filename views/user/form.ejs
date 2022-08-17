@@ -4,17 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-     <!-- css node - express.static -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">  
-     <!-- css custom -->
-     <link rel="stylesheet" href="/stylesheets/main.css">  
+    <%- include('../components/css.ejs') %>  <!-- include css -->
 </head>
 <body>
   <div class="col-12">
     <h1>Signup Form</h1>
   </div>
   <div clas="col-12">
-    <form  name="registerForm" action="/me/register" method="post">
+    <form  name="registerForm">
       <div class="form-group mt-1">
         <label for="username">User Name</label>
         <input type="text" name="username" class="form-control" id="username"  placeholder="Enter name">
@@ -31,11 +28,7 @@
       </form>
     </div>
 
-    <%- include('../model.ejs') %>
-    <!-- scripts from node redirected in app.js with express.static -->
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <!-- scripts from public-->
-    <script src="/javascripts/main.js"></script>
+    <%- include('./modal.ejs') %>
+    <%- include('../components/js.ejs') %>  <!-- include js -->
 </body>
 </html>

@@ -9,8 +9,12 @@ router.get('/form', function(req, res, next) {
   res.render("user/form", {
     messages:{"status":200,success:'success',error:false},
   });
-  res.sendFile(path.join(__dirname+'/../views/user/form.html'));
   });
+  router.get('/index', function(req, res, next) {
+    res.render("index", {
+      messages:{"status":200,success:'success',error:false},
+    });
+    });
   router.get('/update/email', function(req, res, next) {
     res.sendFile(path.join(__dirname+'/../views/user/updateForm.html'));
   });

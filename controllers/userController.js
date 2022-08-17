@@ -44,10 +44,11 @@ const userSchema = new mongoose.Schema(
 const register = async (req, res, next) => {  //asyc because we using await for user model 
   try {
     const Obj = {
-      userName: req.body.username,
+      userName: req.body.userName,
       email: req.body.email,
       passwd: req.body.passwd,
     };  //creating obj  (if reqiired make it an array obj={0:{set1},1:{set2}....})
+    console.log(Obj);
     const newUser = await UserModel.create(Obj); // this will insert data
   } catch (err) {
     console.log(err.errmsg);
@@ -92,7 +93,7 @@ const listUsers =async (req, res, next)=>{
     const users = await UserModel.find({}); //retun all data
     //if need specific .find({name:"name"}, { _id: 0, __v: 0 })
     if (users.length > 0) {
-        res.render("list", {
+        res.render("user/list", {
           messages:{"status":200,success:'successfully fetched',error:false},
             data: users
         });
