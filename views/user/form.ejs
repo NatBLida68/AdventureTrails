@@ -12,6 +12,7 @@
   </div>
   <div clas="col-12">
     <form  name="registerForm">
+      <input type="hidden" id="_csrf" name="_csrf" value="<%= csrfToken %>">   <!-- for the csurf middleware #security  -->
       <div class="form-group mt-1">
         <label for="username">User Name</label>
         <input type="text" name="username" class="form-control" id="username"  placeholder="Enter name">

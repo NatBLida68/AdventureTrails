@@ -60,6 +60,9 @@ app.use('/me', myRouter);
 app.use(function(req, res, next) {
   next(createError(404));
 });
+app.get('/welcome', (req, res, next) => {
+  res.json({ message: "Welcome to Advanced Node JS course" });
+})
 
 // error handler
 app.use(function(err, req, res, next) {

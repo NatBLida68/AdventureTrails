@@ -26,7 +26,8 @@ $(function(){
         passwd = $("input#passwd").val(),
         userName = $("input#username").val(),
         email = $("input#email").val();
-        let data = {passwd:passwd,userName:userName,email:email};
+        _csrf =$("input#_csrf").val();
+        let data = {passwd:passwd,userName:userName,email:email,_csrf:_csrf};
             sendData("/me/register",data); //update
         });
 
