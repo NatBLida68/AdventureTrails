@@ -41,10 +41,18 @@ router.get('/document', csrfProtection,function(req, res, next) {
   });
   });
   var multer = require('multer');
-var upload = multer({dest:'upload/'});
+var storage = multer.diskStorage({
+  destination: './public/uploads/',
+  filename: function(req, file, callback) {
+    console.log(file)
+    callback(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+  }
+})
+var upload = multer({ storage: storage});
+
 router.post('/document', upload.single('profile'), (req, res) => {
   try {
-     res.send(req.file);
+     res.send('succesfully uploaded');
   } catch (err) {
       res.send(400);
   }
