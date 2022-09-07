@@ -1,7 +1,8 @@
-{"level":"info","message":"connect ECONNREFUSED 127.0.0.1:27017","reason":{"compatible":true,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"servers":{},"stale":false,"type":"Unknown"}}
-{"level":"info","message":"connect ECONNREFUSED 127.0.0.1:27017","reason":{"compatible":true,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"servers":{},"stale":false,"type":"Unknown"}}
-{"level":"info","message":"connect ECONNREFUSED 127.0.0.1:27017","reason":{"compatible":true,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"servers":{},"stale":false,"type":"Unknown"}}
-{"level":"info","message":"connect ECONNREFUSED 127.0.0.1:27017","reason":{"compatible":true,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"servers":{},"stale":false,"type":"Unknown"}}
-{"level":"info","message":"connect ECONNREFUSED 127.0.0.1:27017","reason":{"compatible":true,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"servers":{},"stale":false,"type":"Unknown"}}
-{"level":"info","message":"connect ECONNREFUSED 127.0.0.1:27017","reason":{"compatible":true,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"servers":{},"stale":false,"type":"Unknown"}}
-{"level":"info","message":"connect ECONNREFUSED 127.0.0.1:27017","reason":{"compatible":true,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"servers":{},"stale":false,"type":"Unknown"}}
+{"level":"info","message":"Server started"}
+{"level":"info","message":"visit sessions recorded 2 times"}
+{"level":"info","message":"visit sessions recorded 3 times"}
+{"level":"info","message":"visit sessions recorded 4 times"}
+{"level":"info","message":"visit sessions recorded 5 times"}
+{"level":"info","message":"visit sessions recorded 6 times"}
+{"level":"info","message":"visit sessions recorded 7 times"}
+{"level":"info","message":"visit sessions recorded 8 times"}
