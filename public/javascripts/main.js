@@ -73,4 +73,22 @@ $(function(){
                   //  window.location.reload();
                 });
     }
+
+//file upload
+$('input[type=file]').on('change',function(e) {
+    $in = $(this);
+    $in.next().html($in.val());
+});
+
+$('#file-upload').on('click',function() {
+    var fileName = $("#fileUpload").val();
+    if (fileName) {
+        alert(fileName + " can be uploaded.");
+        $("#fileuploadForm").trigger('submit');
+    }
+    else {
+        alert("Please select a file to upload");
+    }
+});
+
    });

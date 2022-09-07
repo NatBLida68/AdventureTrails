@@ -32,7 +32,23 @@ router.get('/about', myController.aboutMe);
 //cookie test
 router.get('/user/:name', userController.user1); //set
 router.get('/who', userController.user2); // view
-router.get('/session',userController.sessionCount) //session test
+router.get('/session',userController.sessionCount); //session test
+
+//doc upload
+router.get('/document', csrfProtection,function(req, res, next) {
+  res.render("user/document", {csrfToken: req.csrfToken(),
+    messages:{"status":200,success:'success',error:false},
+  });
+  });
+  var multer = require('multer');
+var upload = multer({dest:'upload/'});
+router.post('/document', upload.single('profile'), (req, res) => {
+  try {
+     res.send(req.file);
+  } catch (err) {
+      res.send(400);
+  }
+});
 
 //route grouping => a route have both get and post 
 router.route('/login')

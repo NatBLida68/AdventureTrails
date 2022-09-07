@@ -6,3 +6,41 @@ body {
 a {
   color: #00B7FF;
 }
+
+div.upload {
+  background-color:#fff;
+  border: 1px solid #ddd;
+  border-radius:5px;
+  display:inline-block;
+  height: 30px;
+  padding:3px 129px 3px 3px;
+  position:relative;
+  width: auto;
+}
+
+div.upload:hover {
+  opacity:0.95;
+}
+
+div.upload input[type="file"] {
+  display: input-block;
+  opacity: 0;
+  cursor:pointer;
+  position:absolute;
+  left:0;
+}
+.uploadButton {
+  background-color: #425F9C;
+  border: none;
+  color: #FFF;
+  cursor:pointer;
+  height: 20px;
+  box-sizing: content-box;
+}
+
+.fileName {
+  font-family: Arial;
+  font-size:14px;
+  height: 20px;
+  width: 100px;
+}

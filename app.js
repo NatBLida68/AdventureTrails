@@ -64,6 +64,16 @@ app.get('/welcome', (req, res, next) => {
   res.json({ message: "Welcome to Advanced Node JS course" });
 })
 
+//winston logger test
+const loginfo = {
+  transports: [
+    new winston.transports.File({
+      filename: "test.log"
+    })
+  ]
+};
+
+
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
@@ -74,17 +84,16 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+process.on("uncaughtException", (err) => { //customize exception handle 
+  /* clean up allocated resources */
 
-//winston logger test
-const loginfo = {
-  transports: [
-    new winston.transports.File({
-      filename: "test.log"
-    })
-  ]
-};
-const logger2 = winston.createLogger(loginfo);
-logger2.info("Server started"); //this logs msg to test.log file
+  /* log errors */
+  const logger2 = winston.createLogger(loginfo);
+  logger2.info(err); //this logs msg to test.log file
+
+  process.exit(); /* exit the process to avoid unknown state */
+})
+
 
 
 module.exports = app;
