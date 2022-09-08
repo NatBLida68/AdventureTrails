@@ -23,14 +23,21 @@ app.listen(3000);
 // node_modules file redirect setup
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect bootstrap JS
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery
+app.use('/js', express.static(__dirname + '/node_modules/socket.io/client-dist')); // socket io
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); // redirect CSS bootstrap
 
 //view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');  //npm i ejs
 
-app.use(helmet());//make sure its before routes
-
+//app.use(helmet());//make sure its before routes
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      "default-src": ["'self'","ws://127.0.0.1:3200"],
+    },
+  })
+);  //added exception for socket port
 
 //logger morgan test
 app.use(logger('dev'));
@@ -94,6 +101,25 @@ process.on("uncaughtException", (err) => { //customize exception handle
   process.exit(); /* exit the process to avoid unknown state */
 })
 
+//sockets socket io base  -refer old chat app for more details
+const http = require("http").createServer(app);
+/* creating a socket.io instance with express server */
+const socket = require("socket.io")
+const io = socket(http);
+http.listen(3200, () => {
+    console.log("Server started at 3200")
+});
+io.on('connection',(socket)=>{
+    
+  console.log('New web socket connection')
+ 
+ // socket.emit('welcome',"Welcome !") //working 
 
+socket.on("hello", (msg) => { //if a client emit event server using this server sends to all others
+    socket.emit('message',msg)
+  });
+ // socket.emit('message','A new user has joined !')
 
+})
+//sockets end
 module.exports = app;

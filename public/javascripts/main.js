@@ -1,6 +1,21 @@
 console.log("main.js is loaded");
 
 $(function(){
+    //socket io
+   // let socket = new io(":3200");
+    const socket = io(":3200",{
+        transports: ['websocket']
+      });
+    socket.on('connect', () => {
+        console.log("socket connection established");
+        socket.emit('send-message', "Hello World");
+    });
+    socket.on('message', (message)=>{
+        alert(message);
+    });
+    socket.emit('hello','wooww !');
+    
+    //socket end
 
     $("td.user").find(".btn-del").on("click",function(){
      let id=$(this).attr('oid');
