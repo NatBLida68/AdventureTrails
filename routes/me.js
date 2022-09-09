@@ -67,4 +67,10 @@ router.route('/login')
       res.send('process login form');
   }) 
 
+  router.get('/chat',function(req, res, next) {
+    res.render("user/chatroom", {
+      messages:{"status":200,success:'success',error:false},
+    });
+    });
+
 module.exports = router;

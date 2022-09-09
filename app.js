@@ -12,7 +12,6 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var myRouter = require('./routes/me');
 
-
 //app 
 var app = express();
 
@@ -31,6 +30,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');  //npm i ejs
 
 //app.use(helmet());//make sure its before routes
+
 app.use(
   helmet.contentSecurityPolicy({
     directives: {
@@ -58,10 +58,15 @@ app.use(session({
 //public directory
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(function (req,res,next) { //for every request set a cookie data if need 
+  res.cookie("data", 'data');
+  next()
+});
 //enfoce the routes 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/me', myRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -115,8 +120,9 @@ io.on('connection',(socket)=>{
  
  // socket.emit('welcome',"Welcome !") //working 
 
-socket.on("hello", (msg) => { //if a client emit event server using this server sends to all others
-    socket.emit('message',msg)
+socket.on("message", (msg) => { //if a client emit event server using this server sends to all others
+    //to all
+    io.sockets.emit('message', msg);
   });
  // socket.emit('message','A new user has joined !')
 

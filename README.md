@@ -1,5 +1,8 @@
 # AdventureTrails
-testing my node.js  hello world 
+testing my node.js  hello world  
+for my refferences--- so most of them are messed up
+but i can understand 
++ im not realy into frontend dev
 # Express framework
 >routing, middlewares <br>
 >basic form submit <br>
@@ -16,3 +19,6 @@ mongoose extention
 
 # file upload 
 >with multer node module <br>
+
+# ChatRoom  /me/chat
+>with socket io  <br>

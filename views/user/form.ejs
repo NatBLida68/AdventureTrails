@@ -7,11 +7,12 @@
     <%- include('../components/css.ejs') %>  <!-- include css -->
 </head>
 <body>
-  <div class="col-12">
-    <h1>Signup Form</h1>
+  <div class="col-12 text-center">
+    <h1 class="text">Signup Form</h1>
   </div>
-  <div clas="col-12">
-    <form  name="registerForm">
+  <div class="col-8 form-center">
+  <article >
+    <form class="col-8 text-center"  name="registerForm">
       <input type="hidden" id="_csrf" name="_csrf" value="<%= csrfToken %>">   <!-- for the csurf middleware #security  -->
       <div class="form-group mt-1">
         <label for="username">User Name</label>
@@ -27,6 +28,7 @@
         </div>
         <button type="button" id="registerForm" class="btn btn-primary mt-1">Submit</button>
       </form>
+    </article>
     </div>
 
     <%- include('./modal.ejs') %>

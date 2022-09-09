@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+     <%- include('../components/css.ejs') %>  <!-- include css -->
+</head>
+
+<body>
+    <article >
+        <div class="chat-main">
+        <h1 class="text-center text">My Chatroom</h1>
+        <article  class="text chat-content mt-1 d-none">
+            <span style="width:100%;">Name</span>
+            <p>message</p>
+            <span class="time-left">time</span>
+          </article>
+        </div>
+        <div class="input-group">
+            <input class="form-control m-3"id="msg">
+            <span class="input-group-btn">
+                <button class="btn btn-info m-3" id="send">Send</button>
+            </span>
+        </div>
+    </article>
+
+
+    <%- include('./modal.ejs') %>  <!-- include model html code -->
+
+    <%- include('../components/js.ejs') %>  <!-- include js -->
+    <script src="/javascripts/socket.js"></script>
+</body>
+</html>

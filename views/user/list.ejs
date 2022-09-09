@@ -7,17 +7,39 @@
 
      <%- include('../components/css.ejs') %>  <!-- include css -->
 </head>
+
 <body>
-    <div>
-        <a href="/me/list" class="btn btn-info ml-3">Refresh</a>
-    </div>    
-    <!--   <% if (messages.error) { %>
-      <p style="color:red"><%- messages.error %></p>
-    <% } %> -->
+  <div>
+   
+  <div class="text-center" >
+    <h2 class="text ">User List <a href="/me/list" class="btn btn-info m-3 float-right">Refresh</a></h2>
+  </div>
+  <div class="separator"></div>
+
+  </div>
+  <article>
+    <nav class="navbar">
+
+      <ul class="navbar-list">
+    
+          <li class="navbar-item">
+              <a class="navbar-link  active" href="/me/list" data-nav-link="">List</a>
+          </li>
+    
+          <li class="navbar-item">
+              <a class="navbar-link" href="/me/chat" data-nav-link="">Chat</a>
+          </li>
+    
+      </ul>
+    
+    </nav>   
+<!--
     <% if (messages.success) { %>
-        <p class="alert alert-success mt-4"><%- messages.success %></p>
+      alert('hi');
+        <p class="alert alert-success mt-4"> nonce-<%- messages.nonce %></p>
     <% } %>  
-    <br>
+     -->
+
       <table class="table">
     <thead>
       <tr>
@@ -50,8 +72,11 @@
       
     </tbody>
     </table>
+
     <%- include('./modal.ejs') %>  <!-- include model html code -->
 
     <%- include('../components/js.ejs') %>  <!-- include js -->
+
+  </article>
 </body>
 </html>
